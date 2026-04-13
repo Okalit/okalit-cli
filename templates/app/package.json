@@ -1,0 +1,26 @@
+{
+  "name": "okalit-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "rsbuild dev",
+    "build": "rsbuild build",
+    "build:analyze": "BUNDLE_ANALYZE=true rsbuild build",
+    "lint": "biome check ./src",
+    "lint:fix": "biome check --write ./src"
+  },
+  "dependencies": {
+    "uhtml": "^5.0.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/plugin-proposal-decorators": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@biomejs/biome": "2.4.11",
+    "@rsbuild/core": "^1.7.5",
+    "@rsbuild/plugin-babel": "^1.1.2",
+    "@rsbuild/plugin-sass": "^1.5.1",
+    "sass": "^1.97.3"
+  }
+}

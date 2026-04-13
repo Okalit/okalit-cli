@@ -1,0 +1,49 @@
+{
+  "APP": {
+    "TITLE": "Okalit Starter",
+    "SUBTITLE": "Un framework moderno de web components"
+  },
+  "NAV": {
+    "HOME": "Inicio",
+    "LIFECYCLE": "Ciclo de vida",
+    "SERVICES": "Servicios",
+    "PERFORMANCE": "Rendimiento",
+    "DETAIL": "Detalle {{ id }}"
+  },
+  "HOME": {
+    "HEADING": "Panel principal",
+    "COUNTER": "Contador compartido",
+    "COUNTER_HINT": "El contador debe ser > 2 para acceder a la página de detalle (demo de guards).",
+    "RESET": "Reiniciar",
+    "GO_DETAIL": "Ir al Detalle {{ id }}",
+    "GO_LIFECYCLE": "Demo Ciclo de vida",
+    "GO_SERVICES": "Demo Servicios",
+    "GO_PERF": "Demo Rendimiento"
+  },
+  "LIFECYCLE": {
+    "HEADING": "Hooks del ciclo de vida",
+    "LOG": "Registro de eventos",
+    "CLEAR": "Limpiar",
+    "CHANGE_PROP": "Cambiar propiedad name"
+  },
+  "SERVICES": {
+    "HEADING": "Servicios y GraphQL",
+    "REST_TITLE": "REST — Usuarios de JSONPlaceholder",
+    "GQL_TITLE": "GraphQL — Personajes de Rick & Morty",
+    "LOADING": "Cargando…",
+    "ERROR": "Error al cargar datos."
+  },
+  "PERF": {
+    "HEADING": "Componentes de rendimiento",
+    "IDLE_LABEL": "Cargado vía <o-idle> (requestIdleCallback)",
+    "WHEN_LABEL": "Cargado vía <o-when> (condición)",
+    "VIEWPORT_LABEL": "Cargado vía <o-viewport> (desplaza hacia abajo)",
+    "TOGGLE": "Activar condición",
+    "SCROLL_HINT": "Desplaza hacia abajo para activar <o-viewport>…"
+  },
+  "DETAIL": {
+    "HEADING": "Página de detalle",
+    "VIEWING": "Viendo elemento",
+    "BACK": "Volver al inicio"
+  }
+}

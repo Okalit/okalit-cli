@@ -1,0 +1,30 @@
+{
+  "name": "@okalit/cli",
+  "version": "0.3.0",
+  "description": "CLI to create and generate resources for Okalit projects",
+  "type": "module",
+  "bin": {
+    "okalit": "./bin/okalit-cli.js"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates",
+    "README.md"
+  ],
+  "keywords": [
+    "okalit",
+    "cli",
+    "scaffold",
+    "vite",
+    "lit"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node ./bin/okalit-cli.js",
+    "test:smoke": "node ./bin/okalit-cli.js --help"
+  }
+}

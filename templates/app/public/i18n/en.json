@@ -1,0 +1,49 @@
+{
+  "APP": {
+    "TITLE": "Okalit Starter",
+    "SUBTITLE": "A modern web component framework"
+  },
+  "NAV": {
+    "HOME": "Home",
+    "LIFECYCLE": "Lifecycle",
+    "SERVICES": "Services",
+    "PERFORMANCE": "Performance",
+    "DETAIL": "Detail {{ id }}"
+  },
+  "HOME": {
+    "HEADING": "Dashboard",
+    "COUNTER": "Shared Counter",
+    "COUNTER_HINT": "Counter must be > 2 to access the detail page (guard demo).",
+    "RESET": "Reset",
+    "GO_DETAIL": "Go to Detail {{ id }}",
+    "GO_LIFECYCLE": "Lifecycle Demo",
+    "GO_SERVICES": "Services Demo",
+    "GO_PERF": "Performance Demo"
+  },
+  "LIFECYCLE": {
+    "HEADING": "Lifecycle Hooks",
+    "LOG": "Event log",
+    "CLEAR": "Clear",
+    "CHANGE_PROP": "Change name prop"
+  },
+  "SERVICES": {
+    "HEADING": "Services & GraphQL",
+    "REST_TITLE": "REST — JSONPlaceholder Users",
+    "GQL_TITLE": "GraphQL — Rick & Morty Characters",
+    "LOADING": "Loading…",
+    "ERROR": "Error loading data."
+  },
+  "PERF": {
+    "HEADING": "Performance Components",
+    "IDLE_LABEL": "Loaded via <o-idle> (requestIdleCallback)",
+    "WHEN_LABEL": "Loaded via <o-when> (condition)",
+    "VIEWPORT_LABEL": "Loaded via <o-viewport> (scroll down)",
+    "TOGGLE": "Toggle condition",
+    "SCROLL_HINT": "Scroll down to trigger <o-viewport>…"
+  },
+  "DETAIL": {
+    "HEADING": "Detail Page",
+    "VIEWING": "Viewing item",
+    "BACK": "Back to Home"
+  }
+}
