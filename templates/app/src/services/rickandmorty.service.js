@@ -1,4 +1,4 @@
-import { OkalitGraphqlService, service } from '@okalit';
+import { OkalitGraphqlService, service, gql } from '@okalit';
 
 @service('rickandmorty')
 export class RickAndMortyService extends OkalitGraphqlService {
@@ -12,6 +12,8 @@ export class RickAndMortyService extends OkalitGraphqlService {
   }
 
   getCharacters() {
-    return this.query(`{ characters(page: 2, filter: { name: "rick" }) { results { name } } }`);
+    return this.query(gql`
+      query GetRicks { characters(page: 2, filter: { name: "rick" }) { results { name } } }
+    `);
   }
 }
