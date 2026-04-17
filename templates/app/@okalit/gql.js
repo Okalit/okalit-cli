@@ -1,7 +1,7 @@
 export const gql = (strings, ...values) => {
     const fullQuery = strings.reduce((acc, str, i) => {
         const value = values[i];
-        const parsedValue = vakye != null ? String(value) : '';
+        const parsedValue = value != null ? String(value) : '';
 
         return acc + str + parsedValue;
     }, '');
