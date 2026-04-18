@@ -25,7 +25,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@okalit': path.resolve(__dirname, '@okalit'),
+      '@okalit': '@okalit/core',
       '@components': path.resolve(__dirname, 'src/components'),
       '@modules': path.resolve(__dirname, 'src/modules'),
       '@styles': path.resolve(__dirname, 'src/styles'),
