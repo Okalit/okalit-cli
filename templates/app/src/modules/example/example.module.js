@@ -1,4 +1,4 @@
-import { defineElement, ModuleMixin, Okalit } from '@okalit';
+import { defineElement, ModuleMixin, Okalit } from '@okalit/core';
 import global from '@styles/global.scss?inline';
 
 @defineElement({

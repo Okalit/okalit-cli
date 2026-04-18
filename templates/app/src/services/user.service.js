@@ -1,4 +1,4 @@
-import { OkalitService, service } from '@okalit';
+import { OkalitService, service } from '@okalit/core';
 
 @service('user')
 export class UserService extends OkalitService {

@@ -1,5 +1,5 @@
 import { NavLogChannel } from '@channels/example.channel.js';
-import { defineElement, getI18n, html, Okalit, PageMixin, signal, t } from '@okalit';
+import { defineElement, getI18n, html, Okalit, PageMixin, signal, t } from '@okalit/core';
 
 import global from '@styles/global.scss?inline';
 

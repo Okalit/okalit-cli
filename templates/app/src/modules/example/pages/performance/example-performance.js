@@ -1,5 +1,5 @@
-import { defineElement, html, Okalit, PageMixin, signal, t } from '@okalit';
-import '@okalit/performance.js';
+import { defineElement, html, Okalit, PageMixin, signal, t } from '@okalit/core';
+import '@okalit/core/performance.js';
 
 import global from '@styles/global.scss?inline';
 

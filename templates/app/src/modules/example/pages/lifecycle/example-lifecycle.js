@@ -1,4 +1,4 @@
-import { defineElement, html, Okalit, PageMixin, signal, t } from '@okalit';
+import { defineElement, html, Okalit, PageMixin, signal, t } from '@okalit/core';
 
 import global from '@styles/global.scss?inline';
 

@@ -1,4 +1,4 @@
-import { defineElement, html, Okalit } from '@okalit';
+import { defineElement, html, Okalit } from '@okalit/core';
 
 @defineElement({ tag: 'lazy-widget' })
 export class LazyWidget extends Okalit {

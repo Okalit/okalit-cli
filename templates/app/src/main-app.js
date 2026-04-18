@@ -1,4 +1,4 @@
-import { AppMixin, defineElement, html, Okalit } from '@okalit';
+import { AppMixin, defineElement, html, Okalit } from '@okalit/core';
 import routes from './app.routes.js';
 
 import '@layouts/app-layout.js';

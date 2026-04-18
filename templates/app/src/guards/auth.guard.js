@@ -1,4 +1,4 @@
-import { getChannel } from '@okalit';
+import { getChannel } from '@okalit/core';
 
 /**
  * Blocks navigation unless the counter value is greater than 2.

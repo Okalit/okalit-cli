@@ -1,5 +1,5 @@
 import { CounterChannel } from '@channels/example.channel.js';
-import { defineElement, html, Okalit, PageMixin, t } from '@okalit';
+import { defineElement, html, Okalit, PageMixin, t } from '@okalit/core';
 
 import global from '@styles/global.scss?inline';
 

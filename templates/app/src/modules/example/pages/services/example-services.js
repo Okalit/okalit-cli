@@ -1,4 +1,4 @@
-import { defineElement, html, inject, Okalit, PageMixin, signal, t } from '@okalit';
+import { defineElement, html, inject, Okalit, PageMixin, signal, t } from '@okalit/core';
 
 import '@services/user.service.js';
 import '@services/rickandmorty.service.js';

@@ -1,4 +1,4 @@
-import { defineChannel } from '@okalit';
+import { defineChannel } from '@okalit/core';
 
 // Counter: persisted in localStorage, lives across the entire app
 export const CounterChannel = defineChannel('app:counter', {

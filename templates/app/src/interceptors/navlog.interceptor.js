@@ -1,4 +1,4 @@
-import { getChannel } from '@okalit';
+import { getChannel } from '@okalit/core';
 
 /**
  * Logs every navigation to the NavLog channel.
