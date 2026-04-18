@@ -1,6 +1,6 @@
 {
   "name": "@okalit/cli",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "CLI to create and generate resources for Okalit projects",
   "type": "module",
   "bin": {
@@ -26,5 +26,9 @@
   "scripts": {
     "start": "node ./bin/okalit-cli.js",
     "test:smoke": "node ./bin/okalit-cli.js --help"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "gradient-string": "^3.0.0"
   }
 }
