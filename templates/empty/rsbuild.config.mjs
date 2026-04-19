@@ -25,14 +25,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@components': path.resolve(__dirname, 'src/components'),
       '@modules': path.resolve(__dirname, 'src/modules'),
       '@styles': path.resolve(__dirname, 'src/styles'),
-      '@guards': path.resolve(__dirname, 'src/guards'),
-      '@interceptors': path.resolve(__dirname, 'src/interceptors'),
-      '@layouts': path.resolve(__dirname, 'src/layouts'),
-      '@channels': path.resolve(__dirname, 'src/channels'),
-      '@services': path.resolve(__dirname, 'src/services'),
     },
   },
   html: {

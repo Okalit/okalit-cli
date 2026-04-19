@@ -1,6 +1,8 @@
 import { AppMixin, defineElement, Okalit } from '@okalit/core';
 import routes from './app.routes.js';
 
+import '@styles/index.css';
+
 @defineElement({
   tag: 'main-app',
 })

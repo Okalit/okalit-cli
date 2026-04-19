@@ -1,4 +1,4 @@
-import { OkalitGraphqlService, service, gql } from '@okalit/core';
+import { gql, OkalitGraphqlService, service } from '@okalit/core';
 
 @service('rickandmorty')
 export class RickAndMortyService extends OkalitGraphqlService {
