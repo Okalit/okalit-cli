@@ -1,5 +1,4 @@
 import { defineElement, html, Okalit, PageMixin, signal, t } from '@okalit/core';
-
 import global from '@styles/global.scss?inline';
 
 const names = ['Ada', 'Grace', 'Alan', 'Linus', 'Margaret'];
@@ -18,25 +17,18 @@ export class ExampleLifecycle extends PageMixin(Okalit) {
   }
 
   onInit() {
-    this._log('onInit — component initialized');
+    this._log('onInit — Component initialized');
+  }
+
+  onFirstRender(changedProperties) {
+    this._log('onFirstRender — Component rendered for the first time');
   }
 
   onChange(changes) {
-    for (const [prop, { previous, current }] of Object.entries(changes)) {
-      this._log(`onChange — ${prop}: "${previous}" → "${current}"`);
+    if (changes.name) {
+      const { previous, current } = changes.name;
+      this._log(`onChange — name: "${previous}" → "${current}"`);
     }
-  }
-
-  onBeforeRender() {
-    // logged silently to avoid noise — fires every render
-  }
-
-  onAfterRender() {
-    // same as above
-  }
-
-  onDestroy() {
-    console.log('[lifecycle] onDestroy — component removed from DOM');
   }
 
   _changeName() {
@@ -53,7 +45,7 @@ export class ExampleLifecycle extends PageMixin(Okalit) {
         <div class="controls-row">
           <button class="primary" @click=${() => this._changeName()}>${t('LIFECYCLE.CHANGE_PROP')}</button>
         </div>
-        <p class="hint">Each change triggers onChange() → logged below.</p>
+        <p class="hint">Each change triggers onBeforeRender() → logged in console.</p>
       </div>
 
       <h3>${t('LIFECYCLE.LOG')}</h3>
