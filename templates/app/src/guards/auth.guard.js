@@ -1,4 +1,4 @@
-import { getChannel } from '@okalit/core';
+import { getChannelValueStorage } from '@okalit/core';
 
 /**
  * Blocks navigation unless the counter value is greater than 2.
@@ -8,8 +8,6 @@ import { getChannel } from '@okalit/core';
  * Return: true (allow), false (block), or string (redirect path).
  */
 export function authGuard() {
-  const channel = getChannel('app:counter');
-  const count = channel ? channel.value : 0;
-
+  const count = getChannelValueStorage('app:counter') || 0;
   return count <= 2 ? '/' : true;
 }
