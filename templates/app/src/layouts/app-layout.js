@@ -1,4 +1,3 @@
-import { NavLogChannel } from '@channels/example.channel.js';
 import { defineElement, getI18n, html, Okalit, PageMixin, signal, t } from '@okalit/core';
 
 import global from '@styles/global.scss?inline';
@@ -8,12 +7,6 @@ import global from '@styles/global.scss?inline';
   styles: [global],
 })
 export class AppLayout extends PageMixin(Okalit) {
-  static channels = {
-    navLog: NavLogChannel(),
-  };
-
-  showLog = signal(false);
-
   render() {
     const locale = getI18n()?.locale.value;
     const i18n = getI18n();
@@ -42,29 +35,6 @@ export class AppLayout extends PageMixin(Okalit) {
       <main class="app-content">
         <slot></slot>
       </main>
-      <footer class="app-footer">
-        <div class="footer-bar">
-          <button class="footer-toggle" @click=${() => (this.showLog.value = !this.showLog.value)}>
-            Interceptor Log (${this.navLog.value.length})
-          </button>
-          ${
-            this.navLog.value.length > 0
-              ? html`
-            <button class="footer-clear" @click=${() => this.navLog.set([])}>Clear</button>
-          `
-              : null
-          }
-        </div>
-        ${
-          this.showLog.value && this.navLog.value.length > 0
-            ? html`
-          <div class="log-panel footer-log">
-            ${this.navLog.value.map((l) => html`<div class="log-entry">${l}</div>`)}
-          </div>
-        `
-            : null
-        }
-      </footer>
     `;
   }
 }

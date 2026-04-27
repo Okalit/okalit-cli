@@ -6,10 +6,3 @@ export const CounterChannel = defineChannel('app:counter', {
   persist: 'local',
   scope: 'app',
 });
-
-// Navigation log: ephemeral channel to broadcast interceptor events
-export const NavLogChannel = defineChannel('app:navlog', {
-  initialValue: [],
-  persist: 'memory',
-  scope: 'app',
-});
