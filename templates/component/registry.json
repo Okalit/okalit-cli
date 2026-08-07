@@ -1,0 +1,8 @@
+{
+  "name": "component-name",
+  "description": "",
+  "tag": "component-name",
+  "files": ["component-name.js", "component-name.scss"],
+  "channels": [],
+  "dependencies": []
+}

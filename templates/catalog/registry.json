@@ -1,0 +1,11 @@
+{
+  "components": {
+    "example-button": {
+      "type": "component",
+      "path": "components/example-button",
+      "files": ["example-button.js", "example-button.scss"],
+      "channels": [],
+      "dependencies": []
+    }
+  }
+}

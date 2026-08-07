@@ -1,0 +1,14 @@
+{
+  "name": "catalog-name",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Okalit component catalog",
+  "scripts": {
+    "lint": "biome check ./components",
+    "lint:fix": "biome check --write ./components"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.11"
+  }
+}

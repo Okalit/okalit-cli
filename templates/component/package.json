@@ -1,7 +1,7 @@
 {
-  "name": "okalit-app",
+  "name": "component-name",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "rsbuild dev",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@okalit/core": "^0.1.9",
+    "@okalit/demo-components": "^0.1.0",
     "lit": "^3.0.0",
     "uhtml": "^5.0.9"
   },
