@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@okalit/core": "^0.1.9",
-    "lit": "^3.0.0",
+    "lit": "^3.3.3",
     "uhtml": "^5.0.9"
   },
   "devDependencies": {
