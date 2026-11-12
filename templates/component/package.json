@@ -11,10 +11,9 @@
     "lint:fix": "biome check --write ./src"
   },
   "dependencies": {
-    "@okalit/core": "^0.2.2",
+    "@okalit/core": "^0.3.0",
     "@okalit/demo-components": "^0.1.5",
-    "lit": "^3.3.3",
-    "uhtml": "^5.0.9"
+    "lit": "^3.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
