@@ -8,9 +8,8 @@ import { test } from 'node:test';
 
 const testDir = path.dirname(fileURLToPath(import.meta.url));
 const cliPath = path.resolve(testDir, '../bin/okalit-cli.js');
-const enginePath = path.resolve(testDir, '../../okalit-engine-main');
 
-test('scaffolds an opt-in .ok project linked to the local engine', () => {
+test('scaffolds an opt-in .ok project using the published engine package', () => {
   const workspace = fs.mkdtempSync(path.join(os.tmpdir(), 'okalit-ok-cli-'));
   const projectPath = path.join(workspace, 'my-ok-app');
 
@@ -28,11 +27,7 @@ test('scaffolds an opt-in .ok project linked to the local engine', () => {
 
     const packageJson = JSON.parse(fs.readFileSync(path.join(projectPath, 'package.json'), 'utf8'));
     const engineDependency = packageJson.devDependencies['@okalit/engine'];
-    assert.match(engineDependency, /^file:/);
-    assert.equal(
-      path.resolve(projectPath, engineDependency.slice('file:'.length)),
-      enginePath,
-    );
+    assert.equal(engineDependency, '^0.0.1');
   } finally {
     fs.rmSync(workspace, { recursive: true, force: true });
   }

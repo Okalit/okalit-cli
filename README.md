@@ -41,10 +41,9 @@ Prompts:
 - **Which style format?** → SCSS | CSS *(component/catalog only)*
 - **Empty Project?** → Yes | No *(project only)*
 
-The `.ok` option is an opt-in local experiment. It requires the sibling
-`okalit-engine-main` package in the OKALIT workspace and generates a project
-whose `@okalit/engine` dependency points to that local package. Existing
-JavaScript templates remain the default.
+The `.ok` option is experimental and opt-in. Its generated project installs
+`@okalit/engine` from npm as a development dependency. Existing JavaScript
+templates remain the default.
 
 ---
 
