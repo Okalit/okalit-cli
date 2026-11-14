@@ -1,0 +1,8 @@
+@script {
+  import routes from './app.routes.js';
+}
+
+@main {
+  tag: 'main-app',
+  routes
+}

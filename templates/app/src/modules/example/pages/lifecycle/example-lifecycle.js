@@ -7,7 +7,7 @@ let idx = 0;
 @defineElement({
   tag: 'example-lifecycle',
   styles: [global],
-  props: [{ name: { type: String, value: 'World' } }],
+  props: { name: { type: String, value: 'World' } },
 })
 export class ExampleLifecycle extends PageMixin(Okalit) {
   logs = signal([]);

@@ -9,7 +9,7 @@ demo.setComponents([
     tag: 'component-name',
     description: 'A component description',
     import: () => import('./src/component-name.js'),
-    props: [],
+    props: {},
     slots: [
       { name: 'default', content: 'Hello World' },
     ],

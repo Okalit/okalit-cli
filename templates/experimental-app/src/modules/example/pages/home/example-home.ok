@@ -1,0 +1,20 @@
+@script {
+  import { signal } from '@okalit/core';
+}
+
+@page {
+  tag: 'example-home-page',
+  styles: ['example-home.scss']
+}
+
+@logic {
+  count = signal(0);
+}
+
+@render {
+  <section class="page">
+    <h1>Oakalit .ok experiment</h1>
+    <p>Count: ${this.count.value}</p>
+    <button @click=${() => this.count.value++}>+1</button>
+  </section>
+}

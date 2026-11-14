@@ -5,7 +5,7 @@ import styles from "./component-name.scss?inline";
 @defineElement({
   tag: "component-name",
   styles: [styles],
-  props: [],
+  props: {},
 })
 export class ComponentName extends Okalit {
   render() {

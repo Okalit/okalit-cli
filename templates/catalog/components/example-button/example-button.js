@@ -5,10 +5,10 @@ import styles from "./example-button.scss?inline";
 @defineElement({
   tag: "example-button",
   styles: [styles],
-  props: [
-    { variant: { type: String, value: "primary" } },
-    { disabled: { type: Boolean, value: false } },
-  ],
+  props: {
+    variant: { type: String, value: "primary" },
+    disabled: { type: Boolean, value: false },
+  },
 })
 export class ExampleButton extends Okalit {
   _handleClick() {

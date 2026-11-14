@@ -26,12 +26,25 @@ Create a new project, component, or catalog interactively.
 okalit new my-app
 okalit new my-button
 okalit new my-catalog
+okalit new my-ok-app --experimental-ok
+```
+
+Use `--experimental-ok` to scaffold the experimental component syntax:
+
+```bash
+okalit new my-ok-app --experimental-ok
 ```
 
 Prompts:
 - **What do you want to create?** → Project | Component | Catalog
+- **Which component syntax?** → JavaScript (stable) | `.ok` (experimental, project only)
 - **Which style format?** → SCSS | CSS *(component/catalog only)*
 - **Empty Project?** → Yes | No *(project only)*
+
+The `.ok` option is an opt-in local experiment. It requires the sibling
+`okalit-engine-main` package in the OKALIT workspace and generates a project
+whose `@okalit/engine` dependency points to that local package. Existing
+JavaScript templates remain the default.
 
 ---
 
@@ -45,8 +58,20 @@ okalit add settings-page --registry github.com/org/catalog --path ./src/modules/
 okalit add icon-atom --type component
 ```
 
+Install every entry in a catalog with `--all`:
+
+```bash
+okalit add --all --registry github.com/org/catalog
+```
+
+The CLI installs internal dependencies before dependents, skips destinations that
+already exist, and tracks successful installs in `okalit.lock.json`. `--path` and
+`--type` are not available with `--all`; each registry entry controls its type and
+uses the default destination.
+
 | Flag | Description |
 |------|-------------|
+| `--all` | Install every component/page in the registry |
 | `--registry <url>` | GitHub registry URL (or set `okalit.registry` in package.json) |
 | `--path <dest>` | Custom destination path |
 | `--type <type>` | Force type: `component` \| `page` |
@@ -121,6 +146,7 @@ okalit -g -s ./src/services/auth                    # Service
 okalit -g --gqservice ./src/services/posts          # GraphQL Service
 okalit -g -m ./src/modules/community                # Module (with routes + page)
 okalit -g --guard ./src/guards/auth                 # Guard
+okalit -g --interceptor ./src/interceptors/auth     # JWT request interceptor
 ```
 
 | Flag | Resource |
@@ -131,6 +157,10 @@ okalit -g --guard ./src/guards/auth                 # Guard
 | `--gqservice` | GraphQL service with `OkalitGraphqlService` |
 | `-m, --module` | Module with routes, page, and auto-registration in `app.routes.js` |
 | `--guard` | Route guard |
+| `--interceptor` | Request interceptor that adds the JWT from `app:session` to `Authorization` |
+
+The generated interceptor can be attached to a REST or GraphQL service with
+`this.configure({ interceptors: [authInterceptor] })`.
 
 ---
 
