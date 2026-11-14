@@ -1,6 +1,6 @@
 {
   "name": "@okalit/cli",
-  "version": "v0.6.1",
+  "version": "v0.6.2",
   "description": "CLI to create and generate resources for Okalit projects",
   "type": "module",
   "bin": {
