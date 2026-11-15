@@ -1,0 +1,17 @@
+@script {
+  import { t } from '@okalit/core';
+}
+
+@page {
+  tag: 'example-detail',
+  styles: ['@styles/global.scss'],
+}
+
+@render {
+  <h2>${t('DETAIL.HEADING')}</h2>
+  <div class="card">
+    <p>${t('DETAIL.VIEWING')}: <strong>#${this.routeParams.id}</strong></p>
+    <p class="hint">This page is protected by a guard. Counter must be > 2.</p>
+  </div>
+  <button @click=${() => this.navigate('/')}>${t('DETAIL.BACK')}</button>
+}

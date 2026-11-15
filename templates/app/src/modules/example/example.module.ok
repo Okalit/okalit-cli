@@ -1,0 +1,4 @@
+@module {
+  tag: 'example-module',
+  styles: ['@styles/global.scss'],
+}

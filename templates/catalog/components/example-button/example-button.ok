@@ -1,0 +1,25 @@
+@component {
+  tag: 'example-button',
+  styles: ['./example-button.scss'],
+  props: {
+    variant: { type: String, value: 'primary' },
+    disabled: { type: Boolean, value: false },
+  },
+}
+
+@logic {
+  _handleClick() {
+    if (this.disabled.value) return;
+    this.output('on:click');
+  }
+}
+
+@render {
+  <button
+    class="${this.variant.value} ${this.disabled.value ? 'disabled' : ''}"
+    ?disabled=${this.disabled.value}
+    @click=${this._handleClick}
+  >
+    <slot></slot>
+  </button>
+}

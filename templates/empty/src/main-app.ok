@@ -1,0 +1,13 @@
+@script {
+  import routes from './app.routes.js';
+  import '@styles/index.css';
+}
+
+@main {
+  tag: 'main-app',
+  routes,
+  i18n: {
+    default: 'en',
+    locales: ['es', 'en'],
+  },
+}

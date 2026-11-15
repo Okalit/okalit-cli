@@ -3,8 +3,10 @@ import { pluginBabel } from '@rsbuild/plugin-babel';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from 'node:module';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const require = createRequire(import.meta.url);
 
 export default defineConfig({
   plugins: [
@@ -38,5 +40,16 @@ export default defineConfig({
   },
   html: {
     template: './index.html',
+  },
+  tools: {
+    rspack: {
+      module: {
+        rules: [{
+          test: /\.ok$/,
+          type: 'javascript/auto',
+          use: [{ loader: require.resolve('@okalit/engine/loader') }],
+        }],
+      },
+    },
   },
 });

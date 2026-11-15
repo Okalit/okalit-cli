@@ -1,7 +1,7 @@
-import { createRequire } from 'node:module';
 import { defineConfig } from '@rsbuild/core';
 import { pluginBabel } from '@rsbuild/plugin-babel';
 import { pluginSass } from '@rsbuild/plugin-sass';
+import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 
@@ -11,15 +11,16 @@ export default defineConfig({
     pluginBabel({
       include: /\.(j|t)s$/,
       babelLoaderOptions: {
-        plugins: [
-          ['@babel/plugin-proposal-decorators', { version: '2023-05' }],
-        ],
+        plugins: [['@babel/plugin-proposal-decorators', { version: '2023-05' }]],
       },
     }),
   ],
+  html: {
+    template: './index.html',
+  },
   source: {
     entry: {
-      index: './src/main-app.ok',
+      index: './demo.js',
     },
   },
   tools: {
@@ -34,8 +35,5 @@ export default defineConfig({
         ],
       },
     },
-  },
-  html: {
-    template: './index.html',
   },
 });

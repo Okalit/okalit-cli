@@ -1,0 +1,11 @@
+@component {
+  tag: 'component-name',
+  styles: ['./component-name.scss'],
+  props: {},
+}
+
+@render {
+  <div class="component-name">
+    <slot></slot>
+  </div>
+}

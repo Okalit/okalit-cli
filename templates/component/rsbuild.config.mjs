@@ -1,6 +1,9 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginBabel } from '@rsbuild/plugin-babel';
 import { pluginSass } from '@rsbuild/plugin-sass';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
 
 export default defineConfig({
   plugins: [
@@ -20,6 +23,17 @@ export default defineConfig({
   source: {
     entry: {
       index: './demo.js', 
+    },
+  },
+  tools: {
+    rspack: {
+      module: {
+        rules: [{
+          test: /\.ok$/,
+          type: 'javascript/auto',
+          use: [{ loader: require.resolve('@okalit/engine/loader') }],
+        }],
+      },
     },
   },
 });

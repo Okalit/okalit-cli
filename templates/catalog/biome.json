@@ -6,7 +6,15 @@
     "useIgnoreFile": false
   },
   "files": {
-    "includes": ["components/**/*.js", "components/**/*.css", "components/**/*.scss"],
+    "includes": [
+      "**",
+      "!!**/node_modules",
+      "!!**/dist",
+      "!!**/coverage",
+      "!!**/test-results",
+      "!!**/playwright-report",
+      "!**/package-lock.json"
+    ],
     "ignoreUnknown": true
   },
   "formatter": {

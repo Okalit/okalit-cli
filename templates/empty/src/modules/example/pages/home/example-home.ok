@@ -1,0 +1,8 @@
+@page {
+  tag: 'example-home',
+  styles: ['@styles/global.scss'],
+}
+
+@render {
+  <h1>Empty Project</h1>
+}

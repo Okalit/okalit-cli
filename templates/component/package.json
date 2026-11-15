@@ -7,11 +7,11 @@
     "dev": "rsbuild dev",
     "build": "rsbuild build",
     "build:analyze": "BUNDLE_ANALYZE=true rsbuild build",
-    "lint": "biome check ./src",
-    "lint:fix": "biome check --write ./src"
+    "lint": "biome check .",
+    "lint:fix": "biome check --write ."
   },
   "dependencies": {
-    "@okalit/core": "^0.3.0",
+    "@okalit/core": "^0.3.1",
     "@okalit/demo-components": "^0.1.5",
     "lit": "^3.3.3"
   },
