@@ -46,6 +46,8 @@ Prompts:
 - **What do you want to create?** → Project | Component | Catalog
 - **Which component syntax?** → `.ok` (recommended, selected by default) | JavaScript (`.js`)
 - **Which style format?** → SCSS | CSS *(component/catalog only)*
+- **How do you want to distribute it?** → Source catalog (default) | npm library *(component/catalog only)*
+- **npm package name** → Unscoped or scoped, for example `@company/ui` *(npm library only)*
 - **Add unit tests?** → Yes by default (Web Test Runner + Open WC)
 - **Add end-to-end tests?** → No by default (Playwright; projects, component demos and catalogs)
 - **Empty Project?** → Yes | No *(project only)*
@@ -54,7 +56,8 @@ The syntax prompt applies to projects, standalone components and catalogs.
 Full and empty projects are available in both formats, with the same dependencies,
 aliases, Babel/Sass tooling and examples. Both include the published
 `@okalit/engine` dependency and its Rsbuild loader so `.ok` and `.js` imports
-can coexist. Catalogs publish source files for the consuming app's loader.
+can coexist. Source catalogs publish files for the consuming app's loader;
+npm libraries publish compiled JavaScript instead.
 
 Imports can alternate through nested components: `.js → .ok → .js → .ok`,
 or the reverse, with the same build/test tooling. Each `.ok` module compiles
@@ -79,7 +82,8 @@ the recommendation is a CLI default, not a claim that these limitations are solv
 Projects, standalone components and catalogs can include unit tests and
 Playwright end-to-end tests. Catalogs now include a runnable component demo,
 so they offer both testing prompts. Testing dependencies and configuration
-are added only when selected.
+for source tests follow your selections. npm library mode also adds browser
+tooling for its independent package-consumer verification.
 
 Non-interactive projects enable unit tests and disable e2e by default:
 
@@ -147,6 +151,75 @@ assign distinct ports/base URLs in their Playwright configurations.
 into both app formats through a local HTTP registry, builds the resulting apps
 and executes browser tests. It covers alternating nested components, CSS/SCSS,
 dynamic JS-to-OK loading and a shared component imported by multiple branches.
+
+---
+
+## Optional npm libraries
+
+Run `okalit new my-button` or `okalit new my-catalog` interactively, choose
+Component or Catalog, then **npm library** as the distribution target.
+Choose `.ok` or JavaScript and enter the npm package name, such as
+`@company/design-system`. The folder/component name and npm scope are separate.
+The default **Source catalog** keeps the existing workflow unchanged.
+`--ok`/`--js` shortcuts still create applications; use the interactive flow
+for library creation.
+
+The CLI generates `scripts/build-library.mjs`, `main`/`exports`, `files: ["dist"]`,
+runtime peers (`@okalit/core` and `lit`) and `prepack`. Package source can mix
+`.ok` and `.js`; the build compiles decorators, bundles local imports, embeds
+inline CSS/SCSS and keeps declared runtime packages external. Consumers need
+no `.ok` loader to import the library. Add other external runtime packages to
+`dependencies` or `peerDependencies`, not only devDependencies.
+
+```bash
+cd my-catalog
+npm install
+npm run dev             # Develop the demo from source
+npm run build:demo      # Website in demo-dist/
+npm run build           # ESM library in dist/
+npm run test:install
+npm run test:package    # Pack/install and run a clean browser consumer
+npm pack --dry-run      # Review the publishable files
+```
+
+The package-consumer test is included in npm mode independently of optional
+source unit/e2e selections. It checks exports, registered components and
+styles using real Chromium without a custom .ok/decorator plugin.
+`npm pack` and `npm publish` build automatically through `prepack`.
+The demo output cannot overwrite the library output.
+
+For catalogs, `components/name/name.ok` or `name.js` is discovered at build time,
+including nested folders. New conventional entries require no edits to the
+library entry file. Root imports expose named component classes:
+
+```js
+import '@company/design-system';
+// Or import a single catalog entry:
+import { ExampleButton } from '@company/design-system/components/example-button';
+```
+
+Keep class names and custom-element tags unique. Catalog entry files must
+provide named exports; the generated templates already do. Shared chunks
+preserve module identity across root and individual imports. Keep `demo.js`
+and the source `registry.json` updated separately if using those workflows.
+
+Publication is always explicit. Configure your company's npm registry and
+authentication with existing npm tooling; do not commit tokens.
+
+```bash
+# Scoped public package:
+npm publish --access public
+# Private company registry:
+npm publish --registry https://npm.company.example
+```
+
+The CLI does not publish, force public access, configure a registry or store
+credentials. Review the package name/version before publishing. Applications
+do not offer npm distribution: `npm run build` still produces a website in
+`dist/` for server deployment, with no `prepack` or library exports.
+
+CLI maintainers can run `npm run test:distribution` to validate generated
+library builds and packed consumers in both syntax/style combinations.
 
 ---
 
